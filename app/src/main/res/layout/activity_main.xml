@@ -6,54 +6,153 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:fontFamily="monospace"
-        android:inputType="textPersonName"
-        android:text="Income tax calculator for Ontario"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="409dp"
         android:layout_height="660dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-            <TextView android:id="@+id/sin_number"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:fontFamily="monospace"
+                android:inputType="textPersonName"
+                android:text="Income tax calculator for Ontario"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/sin_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Enter SIN"/>
-            <TextView android:id="@+id/f_name"
-                android:layout_height="wrap_content"
+                android:text="Enter SIN" />
+
+            <EditText
+                android:id="@+id/txtFirstName"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Enter first name" />
-            <TextView android:id="@+id/l_name"
+
+            <EditText
+                android:id="@+id/txtLastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Enter last name"/>
+                android:text="Enter last name" />
+
+            <TextView
+                android:id="@+id/txtFullName"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Full Name" />
+
+            <TextView
+                android:id="@+id/txtBirthDate"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Select Date of Birth" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Gender" />
+
+            <RadioGroup
+                android:id="@+id/rgGender"
+                android:layout_width="match_parent"
+                android:layout_height="95dp">
+
+                <RadioButton
+                    android:id="@+id/rbMale"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:id="@+id/rbFemale"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:text="Female" />
+
+                <RadioButton
+                    android:id="@+id/rbOthers"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:text="Others" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/txtAge"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                android:inputType="number"
+                android:text="your age" />
+
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:inputType="date"
+                android:text="Tax Filling Date" />
+
+            <EditText
+                android:id="@+id/txtGrossIncome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:inputType="numberDecimal"
+                android:text="Enter Gross income" />
+
+            <TextView
+                android:id="@+id/FederalTax"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                android:inputType="numberDecimal"
+                android:text="Federal Tax" />
+
+            <TextView
+                android:id="@+id/txtProvincialTax"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                android:inputType="numberDecimal"
+                android:text="Provincial Tax" />
+
+            <EditText
+                android:id="@+id/txtCppContributed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:inputType="numberDecimal"
+                android:text="CPP Contributed" />
 
 
         </LinearLayout>
