@@ -63,13 +63,6 @@
                 android:layout_marginBottom="8dp"
                 android:hint="Enter last name" />
 
-            <TextView
-                android:id="@+id/txtFullName"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_marginTop="8dp"
-                android:text="Full Name" />
-
             <EditText
                 android:id="@+id/txtBirthDate"
                 android:layout_width="match_parent"
@@ -137,35 +130,6 @@
                 android:inputType="numberDecimal"
                 android:hint="Enter Gross income" />
 
-            <TextView
-                android:id="@+id/FederalTax"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_marginTop="8dp"
-                android:inputType="numberDecimal"
-                android:text="Federal Tax" />
-
-            <TextView
-                android:id="@+id/txtProvincialTax"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_marginTop="8dp"
-                android:inputType="numberDecimal"
-                android:text="Provincial Tax" />
-
-            <TextView
-                android:id="@+id/txtCppContributed"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="CPP Contributed" />
-
-            <TextView
-                android:id="@+id/txtEmployementInsurance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Employement insurance" />
 
             <EditText
                 android:id="@+id/edtRRSP"
@@ -174,25 +138,7 @@
                 android:layout_marginTop="8dp"
                 android:hint="RRSP Contributed" />
 
-            <TextView
-                android:id="@+id/txtRRSP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Carry forward RRSP" />
 
-            <TextView
-                android:id="@+id/txtTaxableIncome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Total Taxable Income" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Total Tax Payed" />
 
             <Button
                 android:id="@+id/btnShow"

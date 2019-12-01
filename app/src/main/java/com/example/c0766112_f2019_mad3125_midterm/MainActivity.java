@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
         edtSinNumber = findViewById(R.id.edtSin_number);
         edtFirstName = findViewById(R.id.edtFirstName);
         edtLastName = findViewById(R.id.edtLastName);
-        txtFullName = findViewById(R.id.txtFullName);
-        //txtFullName.setText(customer.getFullName());
         txtGender = findViewById(R.id.txtGender);
         rgGender = findViewById(R.id.rgGender);
         rdMale = findViewById(R.id.rdMale);

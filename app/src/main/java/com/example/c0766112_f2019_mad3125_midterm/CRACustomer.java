@@ -58,8 +58,7 @@ public class CRACustomer implements Parcelable
     }
 
     public Date getFilingDate() {
-        return
-                filingDate;
+        return filingDate;
     }
 
     public double getGrossIncome() {
@@ -131,5 +130,6 @@ public class CRACustomer implements Parcelable
             return new CRACustomer[size];
         }
     };
+
 
 }

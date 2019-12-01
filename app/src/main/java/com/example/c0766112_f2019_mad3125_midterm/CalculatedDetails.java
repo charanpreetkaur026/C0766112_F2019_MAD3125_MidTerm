@@ -10,11 +10,12 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class CalculatedDetails extends AppCompatActivity {
+    CRACustomer customer;
     TextView txtDsin, txtDfullName, txtDgender, txtDgrossIncome,
-            txtDtaxFilingDate, txtDfederalTax, txtDprovincialTax,
-            txtDempInsurance, lblRRSPcontri, lblCfRRSP,
+            txtDtaxFilingDate, txtDfederalTax, txtDprovincialTax, lblcpp,
+            lblEmpInsurance, lblRRSPcontri, lblCfRRSP,
             lblTaxableIncome, lblTaxPaid;
-
+    double cpp = 0, ei = 0;  double rrsp = 0, rrspRem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,8 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDgender =   findViewById(R.id.txt_D_Gender);
         txtDgrossIncome = findViewById(R.id.txt_D_grossIncome);
         lblRRSPcontri = findViewById(R.id.txt_D_RRSPContri);
+        lblcpp = findViewById(R.id.txt_D_Cpp);
+        lblEmpInsurance = findViewById(R.id.txt_D_empInsurance);
 
 
         //collecting intent
@@ -35,7 +38,31 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDgender.setText(" GENDER: \t" + customer.getGender());
         txtDgrossIncome.setText(" GROSS INCOME: \t" + customer.getGrossIncome());
         lblRRSPcontri.setText("RRSP Contributed: \t" + customer.getRrspContri());
+    // calculate  cpp
+        if(customer.getGrossIncome() > 57000.00){
+            cpp = (57000.00 * (5.10 / 100));
+        } else {
+            cpp = (customer.getGrossIncome() * (5.10 / 100));
+        }
+        lblcpp.setText("CPP COntribution in Year:\t" + cpp);
+        // calculate employement insurance
+        if(customer.getGrossIncome() > 53100){
+            ei = (53100 * (1.62 / 100));
+        }else{
+            ei = (customer.getGrossIncome() * (1.62/100));
+        }
+        lblEmpInsurance.setText("Employeement Insurance: \t" + ei);
+        // calculate RRSP
+        rrsp = customer.getRrspContri();
+        double maxRRSP = (customer.getGrossIncome() * (18 /100));
+       if(customer.getRrspContri() < maxRRSP ){
+           rrsp = customer.getRrspContri();
+       }else{
+           rrspRem = rrsp - maxRRSP;
+           rrsp = maxRRSP;
 
+
+       }
 
     }
 
@@ -53,4 +80,14 @@ public class CalculatedDetails extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }
+    public double calcCpp(){
+        // calculate  cpp
+        if(customer.getGrossIncome() > 57000.00){
+            cpp = (57000.00 * (5.10 / 100));
+        } else {
+            cpp = (customer.getGrossIncome() * (5.10 / 100));
+        }
+        return cpp;
+    }
+
 }
