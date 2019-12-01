@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     btnShow.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+        customer = new CRACustomer(edtSinNumber.getText());
         Intent mIntent = new Intent(MainActivity.this, CalculatedDetails.class);
         mIntent.putExtra("CRACustomer", customer);
         startActivity(mIntent);

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class CalculatedDetails extends AppCompatActivity {
-    TextView txtSin, txtFullName;
+    TextView txtSin, txtFullName, txtFirstName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +17,11 @@ public class CalculatedDetails extends AppCompatActivity {
         Intent mIntent = getIntent();
         CRACustomer customer = mIntent.getParcelableExtra("CRACustomer");
         int sin = customer.sinNumber;
-        String fullName = customer.fullName;
+        //String firstName = customer.firstName;
+        //String fullName = customer.fullName;
         txtSin.setText(sin);
-        txtFullName.setText(fullName);
+        //txtFirstName.setText(firstName);
+        //txtFullName.setText(firstName);
 
 
     }

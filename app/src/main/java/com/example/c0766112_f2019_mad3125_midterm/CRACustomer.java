@@ -2,6 +2,7 @@ package com.example.c0766112_f2019_mad3125_midterm;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.Editable;
 
 import java.util.Date;
 
@@ -11,12 +12,22 @@ public class CRACustomer implements Parcelable
  String firstName;
  String lastName;
  String fullName;
+ String gender;
  Date birthDate;
  int age;
  Date filingDate;
  double grossIncome;
  double federalTax;
  double provicialTax;
+
+    public CRACustomer(int sinNumber, String firstName, String lastName, String gender)
+    {
+        this.sinNumber = sinNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.fullName = fullName;
+        this.gender = gender;
+    }
 
 
     public int getSinNumber() {
@@ -34,30 +45,30 @@ public class CRACustomer implements Parcelable
     public String getFullName() {
         return firstName + lastName;
     }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public Date getFilingDate() {
-        return filingDate;
-    }
-
-    public double getGrossIncome() {
-        return grossIncome;
-    }
-
-    public double getFederalTax() {
-        return federalTax;
-    }
-
-    public double getProvicialTax() {
-        return provicialTax;
-    }
+//
+//    public Date getBirthDate() {
+//        return birthDate;
+//    }
+//
+//    public int getAge() {
+//        return age;
+//    }
+//
+//    public Date getFilingDate() {
+//        return filingDate;
+//    }
+//
+//    public double getGrossIncome() {
+//        return grossIncome;
+//    }
+//
+//    public double getFederalTax() {
+//        return federalTax;
+//    }
+//
+//    public double getProvicialTax() {
+//        return provicialTax;
+//    }
 
     @Override
     public int describeContents() {
@@ -67,6 +78,8 @@ public class CRACustomer implements Parcelable
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(sinNumber);
+        dest.writeString(firstName);
+        dest.writeString(lastName);
         dest.writeString(fullName);
 
     }
