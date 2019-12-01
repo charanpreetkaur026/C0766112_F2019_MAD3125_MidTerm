@@ -3,12 +3,13 @@ package com.example.c0766112_f2019_mad3125_midterm;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.Editable;
+import android.widget.EditText;
 
 import java.util.Date;
 
 public class CRACustomer implements Parcelable
 {
-    int sinNumber;
+    String sinNumber;
  String firstName;
  String lastName;
  String fullName;
@@ -20,17 +21,19 @@ public class CRACustomer implements Parcelable
  double federalTax;
  double provicialTax;
 
-    public CRACustomer(int sinNumber, String firstName, String lastName, String gender)
+    public CRACustomer(String sinNumber, String firstName,
+                       String lastName, String gender, double grossIncome)
     {
         this.sinNumber = sinNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.fullName = fullName;
         this.gender = gender;
+        this.grossIncome = grossIncome;
     }
 
 
-    public int getSinNumber() {
+    public String getSinNumber() {
         return sinNumber;
     }
 
@@ -43,7 +46,12 @@ public class CRACustomer implements Parcelable
     }
 
     public String getFullName() {
-        return firstName + lastName;
+        // eg: KAUR, Charan
+        return lastName.toUpperCase() + ", " +
+                firstName.substring(0,1).toUpperCase() + firstName.substring(1);
+    }
+    public String getGender(){
+        return  gender;
     }
 //
 //    public Date getBirthDate() {
@@ -57,10 +65,10 @@ public class CRACustomer implements Parcelable
 //    public Date getFilingDate() {
 //        return filingDate;
 //    }
-//
-//    public double getGrossIncome() {
-//        return grossIncome;
-//    }
+
+    public double getGrossIncome() {
+        return grossIncome;
+    }
 //
 //    public double getFederalTax() {
 //        return federalTax;
@@ -72,18 +80,26 @@ public class CRACustomer implements Parcelable
 
     @Override
     public int describeContents() {
-        return hashCode();
+        return 0;
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(sinNumber);
+        dest.writeString(sinNumber);
         dest.writeString(firstName);
         dest.writeString(lastName);
         dest.writeString(fullName);
+        dest.writeString(gender);
+        dest.writeDouble(grossIncome);
 
     }
     public CRACustomer(Parcel parcel){
+        sinNumber = parcel.readString();
+        firstName = parcel.readString();
+        lastName = parcel.readString();
+        fullName = parcel.readString();
+        gender = parcel.readString();
+        grossIncome = parcel.readDouble();
 
     }
     public  static final Parcelable.Creator<CRACustomer> CREATOR = new Creator<CRACustomer>() {
@@ -94,7 +110,7 @@ public class CRACustomer implements Parcelable
 
         @Override
         public CRACustomer[] newArray(int size) {
-            return new CRACustomer[0];
+            return new CRACustomer[size];
         }
     };
 

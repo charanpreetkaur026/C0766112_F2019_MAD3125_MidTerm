@@ -76,7 +76,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Select Date of Birth"
-                android:clickable="true"
                 android:inputType="date"
                 android:focusable="false"/>
 
@@ -92,22 +91,26 @@
                 android:layout_height="95dp">
 
                 <RadioButton
-                    android:id="@+id/rbMale"
+                    android:id="@+id/rdMale"
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
-                    android:text="Male" />
+                    android:text="Male"
+                    android:checked="true"
+                    android:onClick="checkedButton" />
 
                 <RadioButton
-                    android:id="@+id/rbFemale"
+                    android:id="@+id/rdFemale"
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
-                    android:text="Female" />
+                    android:text="Female"
+                    android:onClick="checkedButton" />
 
                 <RadioButton
-                    android:id="@+id/rbOthers"
+                    android:id="@+id/rdOthers"
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
-                    android:text="Others" />
+                    android:text="Others"
+                    android:onClick="checkedButton" />
             </RadioGroup>
 
             <TextView
@@ -132,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:inputType="numberDecimal"
-                android:text="Enter Gross income" />
+                android:hint="Enter Gross income" />
 
             <TextView
                 android:id="@+id/FederalTax"
