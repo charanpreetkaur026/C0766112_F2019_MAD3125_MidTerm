@@ -40,12 +40,12 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/sin_number"
+                android:id="@+id/edtSin_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Enter SIN" />
+                android:hint="Enter SIN" />
 
             <EditText
                 android:id="@+id/edtFirstName"
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Enter first name" />
+                android:hint="Enter first name" />
 
             <EditText
                 android:id="@+id/edtLastName"
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Enter last name" />
+                android:hint="Enter last name" />
 
             <TextView
                 android:id="@+id/txtFullName"
@@ -70,14 +70,17 @@
                 android:layout_marginTop="8dp"
                 android:text="Full Name" />
 
-            <TextView
+            <EditText
                 android:id="@+id/txtBirthDate"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Select Date of Birth" />
+                android:text="Select Date of Birth"
+                android:clickable="true"
+                android:inputType="date"
+                android:focusable="false"/>
 
-            <TextView
+            <TextView android:id="@+id/txtGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
