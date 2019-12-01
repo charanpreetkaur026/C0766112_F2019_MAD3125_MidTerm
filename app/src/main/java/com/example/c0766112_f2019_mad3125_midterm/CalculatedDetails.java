@@ -10,7 +10,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class CalculatedDetails extends AppCompatActivity {
-    TextView txtDsin, txtDfullName, txtDgender, txtDgrossIncome, txtDtaxFilingDate, txtDfederalTax, txtDprovincialTax, txtDempInsurance,;
+    TextView txtDsin, txtDfullName, txtDgender, txtDgrossIncome,
+            txtDtaxFilingDate, txtDfederalTax, txtDprovincialTax,
+            txtDempInsurance, lblRRSPcontri, lblCfRRSP,
+            lblTaxableIncome, lblTaxPaid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,7 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDfullName = findViewById(R.id.txt_D_fullName);
         txtDgender =   findViewById(R.id.txt_D_Gender);
         txtDgrossIncome = findViewById(R.id.txt_D_grossIncome);
+        lblRRSPcontri = findViewById(R.id.txt_D_RRSPContri);
 
 
         //collecting intent
@@ -30,6 +34,7 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDfullName.setText(" FULL NAME: \t" + customer.getFullName());
         txtDgender.setText(" GENDER: \t" + customer.getGender());
         txtDgrossIncome.setText(" GROSS INCOME: \t" + customer.getGrossIncome());
+        lblRRSPcontri.setText("RRSP Contributed: \t" + customer.getRrspContri());
 
 
     }

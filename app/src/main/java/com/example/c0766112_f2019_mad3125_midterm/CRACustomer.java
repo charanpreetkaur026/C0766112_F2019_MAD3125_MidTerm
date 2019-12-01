@@ -9,20 +9,14 @@ import java.util.Date;
 
 public class CRACustomer implements Parcelable
 {
-    String sinNumber;
- String firstName;
- String lastName;
- String fullName;
- String gender;
- Date birthDate;
+    String sinNumber, firstName, lastName, fullName, gender;
+ Date birthDate,filingDate;
  int age;
- Date filingDate;
- double grossIncome;
- double federalTax;
- double provicialTax;
+ double grossIncome, federalTax, provicialTax, empInsurance;
+ double rrspContri, rrspCarryForward, taxableIncome, taxPaid;
 
     public CRACustomer(String sinNumber, String firstName,
-                       String lastName, String gender, double grossIncome)
+                       String lastName, String gender, double grossIncome, double rrspContri)
     {
         this.sinNumber = sinNumber;
         this.firstName = firstName;
@@ -30,6 +24,7 @@ public class CRACustomer implements Parcelable
         this.fullName = fullName;
         this.gender = gender;
         this.grossIncome = grossIncome;
+        this.rrspContri = rrspContri;
     }
 
 
@@ -53,30 +48,51 @@ public class CRACustomer implements Parcelable
     public String getGender(){
         return  gender;
     }
-//
-//    public Date getBirthDate() {
-//        return birthDate;
-//    }
-//
-//    public int getAge() {
-//        return age;
-//    }
-//
-//    public Date getFilingDate() {
-//        return filingDate;
-//    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Date getFilingDate() {
+        return
+                filingDate;
+    }
 
     public double getGrossIncome() {
         return grossIncome;
     }
-//
-//    public double getFederalTax() {
-//        return federalTax;
-//    }
-//
-//    public double getProvicialTax() {
-//        return provicialTax;
-//    }
+
+    public double getEmpInsurance() {
+        return empInsurance;
+    }
+
+    public double getRrspContri() {
+        return rrspContri;
+    }
+
+    public double getRrspCarryForward() {
+        return rrspCarryForward;
+    }
+
+    public double getTaxableIncome() {
+        return taxableIncome;
+    }
+
+    public double getTaxPaid() {
+        return taxPaid;
+    }
+
+    public double getFederalTax() {
+        return federalTax;
+    }
+
+    public double getProvicialTax() {
+        return provicialTax;
+    }
 
     @Override
     public int describeContents() {
@@ -91,6 +107,7 @@ public class CRACustomer implements Parcelable
         dest.writeString(fullName);
         dest.writeString(gender);
         dest.writeDouble(grossIncome);
+        dest.writeDouble(rrspContri);
 
     }
     public CRACustomer(Parcel parcel){
@@ -100,6 +117,7 @@ public class CRACustomer implements Parcelable
         fullName = parcel.readString();
         gender = parcel.readString();
         grossIncome = parcel.readDouble();
+        rrspContri = parcel.readDouble();
 
     }
     public  static final Parcelable.Creator<CRACustomer> CREATOR = new Creator<CRACustomer>() {

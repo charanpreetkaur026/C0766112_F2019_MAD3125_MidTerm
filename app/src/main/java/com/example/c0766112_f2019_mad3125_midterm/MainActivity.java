@@ -26,19 +26,11 @@ public class MainActivity extends AppCompatActivity {
     final Calendar calendar = Calendar.getInstance();
     DatePickerDialog datePickerDialog;
     private TextView txtTitle;
-    private EditText edtSinNumber;
-    private EditText edtFirstName;
-    private EditText edtLastName;
-    private TextView txtFullName;
-    private EditText txtBirthDate;
-    private TextView txtGender;
+    private EditText edtSinNumber, edtFirstName, edtLastName,txtBirthDate,edtGrossIncome, edtRRSPcontri;
+    private TextView txtFullName,txtGender, txtTaxFilingDate;
     private RadioGroup rgGender;
-    private RadioButton radioGender;
-    private RadioButton rdMale;
-    private RadioButton rdFemale;
-    private RadioButton rdOther;
+    private RadioButton radioGender,rdMale,rdFemale,rdOther;
     private Button btnShow;
-    private EditText edtGrossIncome;
     private String selectedGender = "";
 
 
@@ -57,9 +49,13 @@ public class MainActivity extends AppCompatActivity {
         rdMale = findViewById(R.id.rdMale);
         rdFemale = findViewById(R.id.rdFemale);
         rdOther = findViewById(R.id.rdOthers);
+        txtTaxFilingDate = findViewById(R.id.txt_D_taxFilingDate);
         edtGrossIncome = findViewById(R.id.edtGrossIncome);
         btnShow = findViewById(R.id.btnShow);
         txtBirthDate = findViewById(R.id.txtBirthDate);
+        edtRRSPcontri = findViewById(R.id.edtRRSP);
+        //current date
+//        currentDate();
         //date picker
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -100,10 +96,11 @@ public class MainActivity extends AppCompatActivity {
           @Override
           public void onClick(View v) {
              Double grossIncome = Double.parseDouble(edtGrossIncome.getText().toString());
+             Double rrsp = Double.parseDouble(edtRRSPcontri.getText().toString());
                 customer = new CRACustomer(edtSinNumber.getText().toString(),
                 edtFirstName.getText().toString(),
                 edtLastName.getText().toString(),
-                selectedGender, grossIncome);
+                selectedGender, grossIncome, rrsp);
                  Intent mIntent = new Intent(MainActivity.this, CalculatedDetails.class);
                  mIntent.putExtra("CRACustomer", customer);
                  startActivity(mIntent);
@@ -115,6 +112,14 @@ public class MainActivity extends AppCompatActivity {
         String myFormat = "dd-MMM-yyyy"; //In which you need put here
         java.text.SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         txtBirthDate.setText(sdf.format(calendar.getTime()));
+    }
+    private  void currentDate(){
+        // for tax filing date
+
+        String todayDateFormat = "EEE, MMM d, yyyy";
+        java.text.SimpleDateFormat td = new SimpleDateFormat(todayDateFormat, Locale.CANADA);
+        txtTaxFilingDate.setText(td.format(calendar.getTime()));
+
     }
     public  void checkedButton(View view){
         int radioId = rgGender.getCheckedRadioButtonId();
