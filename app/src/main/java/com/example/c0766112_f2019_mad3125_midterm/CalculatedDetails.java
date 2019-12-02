@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CalculatedDetails extends AppCompatActivity {
     CRACustomer customer;
@@ -14,7 +16,7 @@ public class CalculatedDetails extends AppCompatActivity {
             txtDtaxFilingDate, txtDfederalTax, txtDprovincialTax, lblcpp,
             lblEmpInsurance, lblRRSPcontri, lblCfRRSP,
             lblTaxableIncome, lblTaxPaid;
-    double cpp = 0, ei = 0;  double rrsp = 0, rrspCf;
+    double cpp = 0, ei = 0;  double rrsp = 0, rrspCf, taxableIncome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,7 @@ public class CalculatedDetails extends AppCompatActivity {
         lblcpp = findViewById(R.id.txt_D_Cpp);
         lblEmpInsurance = findViewById(R.id.txt_D_empInsurance);
         lblCfRRSP = findViewById(R.id.txt_D_cfRRSP);
+        lblTaxableIncome = findViewById(R.id.txt_D_taxableIncome);
 
 
         //collecting intent
@@ -58,12 +61,18 @@ public class CalculatedDetails extends AppCompatActivity {
         double maxRRSP = (customer.getGrossIncome() * (18 /100));
        if(customer.getRrspContri() < maxRRSP ){
            rrsp = customer.getRrspContri();
-           //rrspCf = rrsp - maxRRSP;
+           rrspCf = rrsp - maxRRSP;
        }else{
            rrspCf = rrsp - maxRRSP;
+           Log.d("RRSPCF", String.valueOf(rrspCf));
            rrsp = maxRRSP;
        }
         lblCfRRSP.setText("RRSP Carry forward: \t"+ rrspCf);
+       //taxable income
+        taxableIncome = cpp-ei-rrsp;
+        //Toast.makeText(this, "(Double)taxableIncome" + taxableIncome, Toast.LENGTH_SHORT).show();
+        lblTaxableIncome.setText((int) taxableIncome);
+
 
     }
 
