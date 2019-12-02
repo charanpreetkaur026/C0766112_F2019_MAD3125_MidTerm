@@ -47,6 +47,8 @@
                 android:layout_marginBottom="8dp"
                 android:hint="Enter SIN" />
 
+
+
             <EditText
                 android:id="@+id/edtFirstName"
                 android:layout_width="match_parent"

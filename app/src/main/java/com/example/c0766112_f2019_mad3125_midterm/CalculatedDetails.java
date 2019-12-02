@@ -139,7 +139,45 @@ public class CalculatedDetails extends AppCompatActivity {
     }
     public  double calcProvincialTax(){
         //calculate provincial tax
-        return provincialTax;
+            double provincialTax=0.0;
+
+            double first_slab_perc=5.05;
+            double first_slab=33324;
+
+            double second_slab_perc=9.15;
+            double second_slab=43907;
+
+            double third_slab_perc=11.16;
+            double third_slab=62187;
+
+            double fourth_slab_perc=12.16;
+            double fourth_slab=70000;
+
+            double final_slab=0.01;
+            double final_slab_perc=13.16;
+            taxableIncome=taxableIncome-10582.00;
+            if(taxableIncome<=first_slab) {
+                provincialTax = (first_slab * first_slab_perc) / 100;
+                taxableIncome = taxableIncome - first_slab;
+            }
+
+            if(taxableIncome<=second_slab) {
+                provincialTax = (second_slab * second_slab_perc) / 100;
+                taxableIncome = taxableIncome - second_slab;
+            }
+            if(taxableIncome<=third_slab) {
+                provincialTax = (third_slab * third_slab_perc) / 100;
+                taxableIncome = taxableIncome - third_slab;
+            }
+            if(taxableIncome<=fourth_slab) {
+                provincialTax = (fourth_slab * fourth_slab_perc) / 100;
+                taxableIncome = taxableIncome - fourth_slab;
+            }
+            if(taxableIncome<=final_slab) {
+                provincialTax=(final_slab * final_slab_perc)/100;
+            }
+            return provincialTax;
+
     }
     public  double calTaxPaid(){
         return totalTaxPaid;
