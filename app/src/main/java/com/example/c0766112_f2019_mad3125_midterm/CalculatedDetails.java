@@ -52,7 +52,7 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDgrossIncome.setText(" GROSS INCOME: \t" + customer.getGrossIncome());
         lblRRSPcontri.setText("RRSP Contributed: \t" + customer.getRrspContri());
         txtDtaxFilingDate.setText("Tax Filing Date: \t" + customer.getFilingDate());
-        lblAge.setText("Age:\t" + customer.getAge());
+        lblAge.setText(customer.getAge());
 
 
     // calculate  cpp

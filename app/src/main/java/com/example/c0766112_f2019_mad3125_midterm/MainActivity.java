@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         String n1=String.valueOf(diff.getYears());
         String n2=String.valueOf(diff.getMonths());
         String n3=String.valueOf(diff.getDays());
-        String age="Age: "+ n1 +"Years"+ n2 +"Months"+ n3 +"Days";
+        String age="Age: "+ n1 +" Years "+ n2 +" Months "+ n3 +" Days ";
         txtAge.setText(age);
         return  n1;
 
