@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                       customer = new CRACustomer(edtSinNumber.getText().toString(),
                               edtFirstName.getText().toString(),
                               edtLastName.getText().toString(),
-                              selectedGender, grossIncome, rrsp);
+                              selectedGender, grossIncome, rrsp, Integer.parseInt(txtAge.getText().toString()),txtBirthDate.getText().toString());
                       Intent mIntent = new Intent(MainActivity.this, CalculatedDetails.class);
                       mIntent.putExtra("CRACustomer", customer);
                       startActivity(mIntent);
@@ -167,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
         String n2=String.valueOf(diff.getMonths());
         String n3=String.valueOf(diff.getDays());
         String age="Age: "+ n1 +"Years"+ n2 +"Months"+ n3 +"Days";
-
         txtAge.setText(age);
         return  n1;
 

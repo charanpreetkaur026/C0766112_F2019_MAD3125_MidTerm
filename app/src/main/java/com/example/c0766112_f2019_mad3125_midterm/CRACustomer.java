@@ -10,13 +10,13 @@ import java.util.Date;
 public class CRACustomer implements Parcelable
 {
     String sinNumber, firstName, lastName, fullName, gender;
- Date birthDate,filingDate;
+ String birthDate,filingDate;
  int age;
  double grossIncome, federalTax, provicialTax, empInsurance;
  double rrspContri, rrspCarryForward, taxableIncome, taxPaid;
 
     public CRACustomer(String sinNumber, String firstName,
-                       String lastName, String gender, double grossIncome, double rrspContri)
+                       String lastName, String gender, double grossIncome, double rrspContri, int age, String birthDate)
     {
         this.sinNumber = sinNumber;
         this.firstName = firstName;
@@ -25,6 +25,8 @@ public class CRACustomer implements Parcelable
         this.gender = gender;
         this.grossIncome = grossIncome;
         this.rrspContri = rrspContri;
+        this.age = age;
+        this.birthDate = birthDate;
     }
 
 
@@ -49,15 +51,79 @@ public class CRACustomer implements Parcelable
         return  gender;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
+    }
+
+    public void setSinNumber(String sinNumber) {
+        this.sinNumber = sinNumber;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public void setFilingDate(String filingDate) {
+        this.filingDate = filingDate;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setGrossIncome(double grossIncome) {
+        this.grossIncome = grossIncome;
+    }
+
+    public void setFederalTax(double federalTax) {
+        this.federalTax = federalTax;
+    }
+
+    public void setProvicialTax(double provicialTax) {
+        this.provicialTax = provicialTax;
+    }
+
+    public void setEmpInsurance(double empInsurance) {
+        this.empInsurance = empInsurance;
+    }
+
+    public void setRrspContri(double rrspContri) {
+        this.rrspContri = rrspContri;
+    }
+
+    public void setRrspCarryForward(double rrspCarryForward) {
+        this.rrspCarryForward = rrspCarryForward;
+    }
+
+    public void setTaxableIncome(double taxableIncome) {
+        this.taxableIncome = taxableIncome;
+    }
+
+    public void setTaxPaid(double taxPaid) {
+        this.taxPaid = taxPaid;
     }
 
     public int getAge() {
         return age;
     }
 
-    public Date getFilingDate() {
+    public String getFilingDate() {
         return filingDate;
     }
 
