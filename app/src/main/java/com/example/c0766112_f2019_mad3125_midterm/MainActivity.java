@@ -97,15 +97,24 @@ public class MainActivity extends AppCompatActivity {
         btnShow.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-             Double grossIncome = Double.parseDouble(edtGrossIncome.getText().toString());
-             Double rrsp = Double.parseDouble(edtRRSPcontri.getText().toString());
-                customer = new CRACustomer(edtSinNumber.getText().toString(),
-                edtFirstName.getText().toString(),
-                edtLastName.getText().toString(),
-                selectedGender, grossIncome, rrsp);
-                 Intent mIntent = new Intent(MainActivity.this, CalculatedDetails.class);
-                 mIntent.putExtra("CRACustomer", customer);
-                 startActivity(mIntent);
+              if  (edtSinNumber.getText().toString().length() <= 0 && edtFirstName.getText().toString().length() <= 0
+                          && edtLastName.getText().toString().length() <= 0 && edtRRSPcontri.getText().toString().length() <= 0
+                          && edtGrossIncome.getText().toString().length() <= 0)
+              {
+                  Toast.makeText(MainActivity.this, "Alert: Fill all fields", Toast.LENGTH_SHORT).show();
+              }
+              else
+                  {
+                  Double grossIncome = Double.parseDouble(edtGrossIncome.getText().toString());
+                  Double rrsp = Double.parseDouble(edtRRSPcontri.getText().toString());
+                  customer = new CRACustomer(edtSinNumber.getText().toString(),
+                          edtFirstName.getText().toString(),
+                          edtLastName.getText().toString(),
+                          selectedGender, grossIncome, rrsp);
+                  Intent mIntent = new Intent(MainActivity.this, CalculatedDetails.class);
+                  mIntent.putExtra("CRACustomer", customer);
+                  startActivity(mIntent);
+              }
     }
     });
 
