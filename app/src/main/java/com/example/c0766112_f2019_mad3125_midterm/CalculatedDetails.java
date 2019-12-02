@@ -35,7 +35,6 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDprovincialTax = findViewById(R.id.txt_D_provincialTax);
         lblTaxPaid = findViewById(R.id.txt_D_taxPayed);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         //collecting intent
