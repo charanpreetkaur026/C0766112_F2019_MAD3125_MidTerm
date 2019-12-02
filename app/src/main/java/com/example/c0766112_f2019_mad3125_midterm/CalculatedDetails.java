@@ -16,7 +16,7 @@ public class CalculatedDetails extends AppCompatActivity {
             txtDtaxFilingDate, txtDfederalTax, txtDprovincialTax, lblcpp,
             lblEmpInsurance, lblRRSPcontri, lblCfRRSP,
             lblTaxableIncome, lblTaxPaid;
-    double cpp = 0, ei = 0;  double rrsp = 0, rrspCf, taxableIncome;
+    double cpp = 0, ei = 0;  double rrsp = 0, rrspCf, taxableIncome, federalTax;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +71,7 @@ public class CalculatedDetails extends AppCompatActivity {
        //taxable income
         taxableIncome = cpp-ei-rrsp;
         //Toast.makeText(this, "(Double)taxableIncome" + taxableIncome, Toast.LENGTH_SHORT).show();
-        lblTaxableIncome.setText((int) taxableIncome);
+        lblTaxableIncome.setText("Taxable income:\t" + (int) taxableIncome);
 
 
     }
@@ -98,6 +98,17 @@ public class CalculatedDetails extends AppCompatActivity {
             cpp = (customer.getGrossIncome() * (5.10 / 100));
         }
         return cpp;
+    }
+    public double calcFedralTax(){
+        //calculate federal tax
+        if(taxableIncome < 12069.00){
+            federalTax = 0;
+            if(taxableIncome )
+            taxableIncome = taxableIncome - 12069.00;
+
+        }else if(taxableIncome < 47630.00){
+            taxableIncome = taxableIncome * (15 /100);
+        }
     }
 
 }
