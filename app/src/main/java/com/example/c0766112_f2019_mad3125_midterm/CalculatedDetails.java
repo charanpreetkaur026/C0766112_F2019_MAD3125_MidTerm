@@ -17,7 +17,7 @@ public class CalculatedDetails extends AppCompatActivity {
     TextView txtDsin, txtDfullName, txtDgender, txtDgrossIncome,
             txtDtaxFilingDate, txtDfederalTax, txtDprovincialTax, lblcpp,
             lblEmpInsurance, lblRRSPcontri, lblCfRRSP,
-            lblTaxableIncome, lblTaxPaid;
+            lblTaxableIncome, lblTaxPaid, lblAge;
     double cpp = 0, ei = 0;  double rrsp = 0, rrspCf = 0, taxableIncome, federalTax,
             provincialTax, totalTaxPaid;
     NumberFormat format = NumberFormat.getCurrencyInstance();
@@ -38,6 +38,7 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDprovincialTax = findViewById(R.id.txt_D_provincialTax);
         lblTaxPaid = findViewById(R.id.txt_D_taxPayed);
         txtDtaxFilingDate = findViewById(R.id.txt_D_taxFilingDate);
+        lblAge = findViewById(R.id.txt_D_age);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -51,6 +52,7 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDgrossIncome.setText(" GROSS INCOME: \t" + customer.getGrossIncome());
         lblRRSPcontri.setText("RRSP Contributed: \t" + customer.getRrspContri());
         txtDtaxFilingDate.setText("Tax Filing Date: \t" + customer.getFilingDate());
+        lblAge.setText("Age:\t" + customer.getAge());
 
 
     // calculate  cpp

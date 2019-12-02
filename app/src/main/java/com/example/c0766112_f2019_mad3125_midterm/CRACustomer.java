@@ -12,12 +12,12 @@ public class CRACustomer implements Parcelable
 {
     String sinNumber, firstName, lastName, fullName, gender;
  String birthDate,filingDate;
- int age;
+ String age;
  double grossIncome, federalTax, provicialTax, empInsurance;
  double rrspContri, rrspCarryForward, taxableIncome, taxPaid;
 
     public CRACustomer(String sinNumber, String firstName,
-                       String lastName, String gender, double grossIncome, double rrspContri, int age, String birthDate, String filingDate)
+                       String lastName, String gender, double grossIncome, double rrspContri, String age, String birthDate, String filingDate)
     {
         this.sinNumber = sinNumber;
         this.firstName = firstName;
@@ -85,7 +85,7 @@ public class CRACustomer implements Parcelable
         this.filingDate = filingDate;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -121,7 +121,7 @@ public class CRACustomer implements Parcelable
         this.taxPaid = taxPaid;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
@@ -177,6 +177,7 @@ public class CRACustomer implements Parcelable
         dest.writeDouble(rrspContri);
         dest.writeString(filingDate);
         dest.writeString(birthDate);
+        dest.writeString(age);
         dest.writeDouble(taxableIncome);
         dest.writeDouble(federalTax);
         dest.writeDouble(taxPaid);
@@ -194,6 +195,7 @@ public class CRACustomer implements Parcelable
         rrspContri = parcel.readDouble();
         filingDate = parcel.readString();
         birthDate = parcel.readString();
+        age = parcel.readString();
         taxableIncome = parcel.readDouble();
         federalTax = parcel.readDouble();
         taxPaid = parcel.readDouble();

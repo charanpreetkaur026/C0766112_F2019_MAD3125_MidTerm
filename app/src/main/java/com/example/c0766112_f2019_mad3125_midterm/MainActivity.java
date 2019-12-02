@@ -135,11 +135,12 @@ public class MainActivity extends AppCompatActivity {
 //                  } else {
                       Double grossIncome = Double.parseDouble(edtGrossIncome.getText().toString());
                       Double rrsp = Double.parseDouble(edtRRSPcontri.getText().toString());
-                      int age = Integer.parseInt(txtAge.getText().toString());
+                      //int age = Integer.parseInt(txtAge.getText().toString());
                       customer = new CRACustomer(edtSinNumber.getText().toString(),
                               edtFirstName.getText().toString(),
                               edtLastName.getText().toString(),
-                              selectedGender, grossIncome, rrsp,age,
+                              selectedGender, grossIncome, rrsp,
+                              txtAge.getText().toString(),
                               txtBirthDate.getText().toString(),
                               txtTaxFilingDate.getText().toString());
                       Intent mIntent = new Intent(MainActivity.this, CalculatedDetails.class);
