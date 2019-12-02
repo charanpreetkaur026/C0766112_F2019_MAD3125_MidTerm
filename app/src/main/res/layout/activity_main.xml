@@ -129,8 +129,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:inputType="numberDecimal"
-                android:hint="Enter Gross income" />
+                android:drawableLeft="@drawable/ic_action_dollor"
+                android:hint="Enter Gross income"
+                android:inputType="numberDecimal" />
 
 
             <EditText
@@ -138,6 +139,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:drawableLeft="@drawable/ic_action_dollor"
                 android:hint="RRSP Contributed" />
 
 
@@ -147,7 +149,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="SHOW" />
+                android:text="CALCULATE TAX" />
 
 
         </LinearLayout>

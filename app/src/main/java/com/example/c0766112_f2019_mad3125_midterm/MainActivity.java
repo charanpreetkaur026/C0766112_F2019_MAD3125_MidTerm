@@ -119,25 +119,7 @@ public class MainActivity extends AppCompatActivity {
     });
 
     };
-    private void dateFormat() {
-        String myFormat = "dd-MMM-yyyy"; //In which you need put here
-        java.text.SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-        txtBirthDate.setText(sdf.format(calendar.getTime()));
 
-
-        LocalDate l = LocalDate.of(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-//        // LocalDate l = LocalDate.of(1998, 04, 23); //specify year, month, date directly
-//        LocalDate now = LocalDate.now(); //gets localDate
-//        Period diff = Period.between(l, now); //difference between the dates is calculated
-//        System.out.println(diff.getYears() + "years" + diff.getMonths() + "months" + diff.getDays() + "days");
-//        String n1=String.valueOf(diff.getYears());
-//        String n2=String.valueOf(diff.getMonths());
-//        String n3=String.valueOf(diff.getDays());
-//        String age="Age: "+n1+"Years"+n2+"Months"+n3+"Days";
-//        txtAge.setText(age);
-//        return n1;  //app crashed
-
-    }
     private  void currentDate(){
         // for tax filing date
 
@@ -163,6 +145,28 @@ public class MainActivity extends AppCompatActivity {
         radioGender = findViewById(radioId);
         txtGender.setText(selectedGender);
         Toast.makeText(this, "Gender:" + radioGender.getText(), Toast.LENGTH_SHORT).show();
+    }
+    private void dateFormat() {
+        //https://stackoverflow.com/questions/14933330/datepicker-how-to-popup-datepicker-when-click-on-edittext
+        String myFormat = "dd-MMM-yyyy"; //In which you need put here
+        java.text.SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        txtBirthDate.setText(sdf.format(calendar.getTime()));
+
+
+//        LocalDate l = LocalDate.of(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+//        LocalDate now = LocalDate.now(); //gets localDate
+//        Period diff = Period.between(l, now); //difference between the dates is calculated
+//        //System.out.println(diff.getYears() + "years" + diff.getMonths() + "months" + diff.getDays() + "days");
+//
+//        String n1=String.valueOf(diff.getYears());
+//        String n2=String.valueOf(diff.getMonths());
+//        String n3=String.valueOf(diff.getDays());
+//        String age="Age: "+n1+"Years"+n2+"Months"+n3+"Days";
+//
+//
+//        txtAge.setText(age);
+//        return  n1;
+
     }
 
 
