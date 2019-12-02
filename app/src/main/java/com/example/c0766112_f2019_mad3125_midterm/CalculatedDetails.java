@@ -47,30 +47,32 @@ public class CalculatedDetails extends AppCompatActivity {
         lblRRSPcontri.setText("RRSP Contributed: \t" + customer.getRrspContri());
 
     // calculate  cpp
-        if(customer.getGrossIncome() > 57000.00){
-            cpp = (57000.00 * (5.10 / 100));
+        double grossIncome = customer.getGrossIncome();
+        if(grossIncome > 57400.00){
+            cpp = (57400.00 * 0.051); //5.10%
         } else {
-            cpp = (customer.getGrossIncome() * (5.10 / 100));
+            cpp = (grossIncome * 0.051);
         }
         lblcpp.setText("CPP COntribution in Year:\t" + cpp);
         // calculate employement insurance
-        if(customer.getGrossIncome() > 53100){
-            ei = (53100 * (1.62 / 100));
+        if(grossIncome > 53100){
+            ei = (53100 * 0.0162); //1.62%
         }else{
-            ei = (customer.getGrossIncome() * (1.62/100));
+            ei = (grossIncome * (1.62/100));
         }
         lblEmpInsurance.setText("Employeement Insurance: \t" + ei);
         // calculate RRSP
         rrsp = customer.getRrspContri();
-        double maxRRSP = (customer.getGrossIncome() * (18 /100));
-       if(customer.getRrspContri() > maxRRSP ){
+        double maxRRSP = (grossIncome * 0.18); //18%
+       if(rrsp > maxRRSP ){
            rrspCf = rrsp - maxRRSP;
-       }else{
            rrsp = maxRRSP;
+       }else{
+           rrsp = rrsp;
        }
         lblCfRRSP.setText("RRSP Carry forward: \t"+ rrspCf);
        //taxable income
-        taxableIncome = (cpp - ei - rrsp);
+        taxableIncome = grossIncome - (cpp + ei + rrsp);
         //Toast.makeText(this, "(Double)taxableIncome" + taxableIncome, Toast.LENGTH_SHORT).show();
         lblTaxableIncome.setText("Taxable income:\t" + (double) taxableIncome);
         //federal tax
@@ -104,21 +106,34 @@ public class CalculatedDetails extends AppCompatActivity {
     }
     public double calcCpp(){
         // calculate  cpp
-        if(customer.getGrossIncome() > 57000.00){
-            cpp = (57000.00 * (5.10 / 100));
+        if(customer.getGrossIncome() > 57400.00){
+            cpp = (57400.00 * 0.051);
         } else {
-            cpp = (customer.getGrossIncome() * (5.10 / 100));
+            cpp = (customer.getGrossIncome() * 0.051);
         }
         return cpp;
     }
     public double calcFedralTax(){
         //calculate federal tax
-
+        double temp = taxableIncome ;
         if(taxableIncome < 12069.00){
             federalTax = 0;
-            //taxableIncome = taxableIncome - 12069.00;
+            temp = taxableIncome - 12069.00;
+        }else if(temp < 47630.00){
+            federalTax = (temp * 0.15);
+            temp = temp - federalTax;
+        }else if(temp < 95259.00){
+            federalTax = (temp * 0.205); //20.50%
+            temp = temp - federalTax;
+        }else if(temp < 147667.00){
+            federalTax = (temp * 0.26); //26%
+            temp = temp - federalTax;
+        }else if (temp < 210371.00){
+            federalTax = (temp * 0.29);//29%
+            temp = temp - federalTax;
         }else{
-            federalTax = taxableIncome - 1;
+            federalTax = (temp * 0.33);//33%
+            temp = temp - federalTax;
         }
         return federalTax;
     }
