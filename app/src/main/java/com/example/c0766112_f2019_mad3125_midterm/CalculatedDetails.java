@@ -16,7 +16,8 @@ public class CalculatedDetails extends AppCompatActivity {
             txtDtaxFilingDate, txtDfederalTax, txtDprovincialTax, lblcpp,
             lblEmpInsurance, lblRRSPcontri, lblCfRRSP,
             lblTaxableIncome, lblTaxPaid;
-    double cpp = 0, ei = 0;  double rrsp = 0, rrspCf, taxableIncome, federalTax;
+    double cpp = 0, ei = 0;  double rrsp = 0, rrspCf = 0, taxableIncome, federalTax,
+            provincialTax, totalTaxPaid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,9 @@ public class CalculatedDetails extends AppCompatActivity {
         lblEmpInsurance = findViewById(R.id.txt_D_empInsurance);
         lblCfRRSP = findViewById(R.id.txt_D_cfRRSP);
         lblTaxableIncome = findViewById(R.id.txt_D_taxableIncome);
+        txtDfederalTax = findViewById(R.id.txt_D_federalTax);
+        txtDprovincialTax = findViewById(R.id.txt_D_provincialTax);
+        lblTaxPaid = findViewById(R.id.txt_D_taxPayed);
 
 
         //collecting intent
@@ -59,19 +63,27 @@ public class CalculatedDetails extends AppCompatActivity {
         // calculate RRSP
         rrsp = customer.getRrspContri();
         double maxRRSP = (customer.getGrossIncome() * (18 /100));
-       if(customer.getRrspContri() < maxRRSP ){
-           rrsp = customer.getRrspContri();
+       if(customer.getRrspContri() > maxRRSP ){
            rrspCf = rrsp - maxRRSP;
        }else{
-           rrspCf = rrsp - maxRRSP;
-           Log.d("RRSPCF", String.valueOf(rrspCf));
            rrsp = maxRRSP;
        }
         lblCfRRSP.setText("RRSP Carry forward: \t"+ rrspCf);
        //taxable income
-        taxableIncome = cpp-ei-rrsp;
+        taxableIncome = (cpp - ei - rrsp);
         //Toast.makeText(this, "(Double)taxableIncome" + taxableIncome, Toast.LENGTH_SHORT).show();
-        lblTaxableIncome.setText("Taxable income:\t" + (int) taxableIncome);
+        lblTaxableIncome.setText("Taxable income:\t" + (double) taxableIncome);
+        //federal tax
+        double calFederal = calcFedralTax();
+        txtDfederalTax.setText("Federal Tax: \t" + calFederal);
+        // Provincial Tax
+        double calProvincial = calcProvincialTax();
+        txtDprovincialTax.setText("Provincial Tax:\t" + calProvincial);
+        // total tax paid
+        double taxpaid = calTaxPaid();
+        lblTaxPaid.setText("Total tax Paid:\t" + taxpaid);
+
+
 
 
     }
@@ -101,14 +113,21 @@ public class CalculatedDetails extends AppCompatActivity {
     }
     public double calcFedralTax(){
         //calculate federal tax
+
         if(taxableIncome < 12069.00){
             federalTax = 0;
-            if(taxableIncome )
-            taxableIncome = taxableIncome - 12069.00;
-
-        }else if(taxableIncome < 47630.00){
-            taxableIncome = taxableIncome * (15 /100);
+            //taxableIncome = taxableIncome - 12069.00;
+        }else{
+            federalTax = taxableIncome - 1;
         }
+        return federalTax;
+    }
+    public  double calcProvincialTax(){
+        //calculate provincial tax
+        return provincialTax;
+    }
+    public  double calTaxPaid(){
+        return totalTaxPaid;
     }
 
 }
