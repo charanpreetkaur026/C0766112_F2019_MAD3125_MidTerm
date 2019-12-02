@@ -17,6 +17,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton radioGender,rdMale,rdFemale,rdOther;
     private Button btnShow;
     private String selectedGender = "";
-
+    NumberFormat formatter = new DecimalFormat("#,###");
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
