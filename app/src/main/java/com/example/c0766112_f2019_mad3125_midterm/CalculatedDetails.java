@@ -1,6 +1,5 @@
 package com.example.c0766112_f2019_mad3125_midterm;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,7 +14,7 @@ public class CalculatedDetails extends AppCompatActivity {
             txtDtaxFilingDate, txtDfederalTax, txtDprovincialTax, lblcpp,
             lblEmpInsurance, lblRRSPcontri, lblCfRRSP,
             lblTaxableIncome, lblTaxPaid;
-    double cpp = 0, ei = 0;  double rrsp = 0, rrspRem;
+    double cpp = 0, ei = 0;  double rrsp = 0, rrspCf;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +26,7 @@ public class CalculatedDetails extends AppCompatActivity {
         lblRRSPcontri = findViewById(R.id.txt_D_RRSPContri);
         lblcpp = findViewById(R.id.txt_D_Cpp);
         lblEmpInsurance = findViewById(R.id.txt_D_empInsurance);
+        lblCfRRSP = findViewById(R.id.txt_D_cfRRSP);
 
 
         //collecting intent
@@ -38,6 +38,7 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDgender.setText(" GENDER: \t" + customer.getGender());
         txtDgrossIncome.setText(" GROSS INCOME: \t" + customer.getGrossIncome());
         lblRRSPcontri.setText("RRSP Contributed: \t" + customer.getRrspContri());
+
     // calculate  cpp
         if(customer.getGrossIncome() > 57000.00){
             cpp = (57000.00 * (5.10 / 100));
@@ -57,12 +58,12 @@ public class CalculatedDetails extends AppCompatActivity {
         double maxRRSP = (customer.getGrossIncome() * (18 /100));
        if(customer.getRrspContri() < maxRRSP ){
            rrsp = customer.getRrspContri();
+           //rrspCf = rrsp - maxRRSP;
        }else{
-           rrspRem = rrsp - maxRRSP;
+           rrspCf = rrsp - maxRRSP;
            rrsp = maxRRSP;
-
-
        }
+        lblCfRRSP.setText("RRSP Carry forward: \t"+ rrspCf);
 
     }
 
