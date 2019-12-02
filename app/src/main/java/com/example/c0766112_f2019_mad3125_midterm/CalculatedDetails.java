@@ -73,6 +73,7 @@ public class CalculatedDetails extends AppCompatActivity {
         lblCfRRSP.setText("RRSP Carry forward: \t"+ rrspCf);
        //taxable income
         taxableIncome = grossIncome - (cpp + ei + rrsp);
+        
         //Toast.makeText(this, "(Double)taxableIncome" + taxableIncome, Toast.LENGTH_SHORT).show();
         lblTaxableIncome.setText("Taxable income:\t" + (double) taxableIncome);
         //federal tax
@@ -84,7 +85,7 @@ public class CalculatedDetails extends AppCompatActivity {
         // total tax paid
         double taxpaid = calTaxPaid();
         lblTaxPaid.setText("Total tax Paid:\t" + taxpaid);
-        
+
 
     }
 
