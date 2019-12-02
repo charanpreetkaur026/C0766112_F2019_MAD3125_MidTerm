@@ -116,24 +116,29 @@ public class CalculatedDetails extends AppCompatActivity {
     public double calcFedralTax(){
         //calculate federal tax
         double temp = taxableIncome ;
-        if(taxableIncome < 12069.00){
+        if(temp <= 12069.00){
             federalTax = 0;
             temp = taxableIncome - 12069.00;
-        }else if(temp < 47630.00){
+        }
+        if(temp >= 12069.01){
             federalTax = (temp * 0.15);
-            temp = temp - federalTax;
-        }else if(temp < 95259.00){
+            temp = temp - 35561;
+        }
+        if(temp >= 47630.01){
             federalTax = (temp * 0.205); //20.50%
-            temp = temp - federalTax;
-        }else if(temp < 147667.00){
+            temp = temp - 47628.99;
+        }
+        if(temp >= 95259.01){
             federalTax = (temp * 0.26); //26%
-            temp = temp - federalTax;
-        }else if (temp < 210371.00){
+            temp = temp - 52407.99;
+        }
+        if (temp >= 147667.01){
             federalTax = (temp * 0.29);//29%
-            temp = temp - federalTax;
-        }else{
+            temp = temp - 62703.99;
+        }
+        if(temp >= 210371.01){
             federalTax = (temp * 0.33);//33%
-            temp = temp - federalTax;
+            //temp = temp - federalTax;
         }
         return federalTax;
     }
@@ -141,40 +146,40 @@ public class CalculatedDetails extends AppCompatActivity {
         //calculate provincial tax
             double provincialTax=0.0;
 
-            double first_slab_perc=5.05;
-            double first_slab=33324;
+            double first_slab_percentage=5.05;
+            double first_slab_amount=33324;
 
-            double second_slab_perc=9.15;
-            double second_slab=43907;
+            double second_slab_percentage=9.15;
+            double second_slab_amount=43907;
 
-            double third_slab_perc=11.16;
-            double third_slab=62187;
+            double third_slab_percentage=11.16;
+            double third_slab_amount=62187;
 
-            double fourth_slab_perc=12.16;
-            double fourth_slab=70000;
+            double fourth_slab_percentage=12.16;
+            double fourth_slab_amount=70000;
 
             double final_slab=0.01;
-            double final_slab_perc=13.16;
+            double final_slab_percentage=13.16;
             taxableIncome=taxableIncome-10582.00;
-            if(taxableIncome<=first_slab) {
-                provincialTax = (first_slab * first_slab_perc) / 100;
-                taxableIncome = taxableIncome - first_slab;
+            if(taxableIncome>=first_slab_amount) {
+                provincialTax = first_slab_amount * (first_slab_percentage / 100);
+                taxableIncome = taxableIncome - first_slab_amount;
             }
 
-            if(taxableIncome<=second_slab) {
-                provincialTax = (second_slab * second_slab_perc) / 100;
-                taxableIncome = taxableIncome - second_slab;
+            if(taxableIncome>=second_slab_amount) {
+                provincialTax = second_slab_amount * (second_slab_percentage / 100);
+                taxableIncome = taxableIncome - second_slab_amount;
             }
-            if(taxableIncome<=third_slab) {
-                provincialTax = (third_slab * third_slab_perc) / 100;
-                taxableIncome = taxableIncome - third_slab;
+            if(taxableIncome>=third_slab_amount) {
+                provincialTax = third_slab_amount * (third_slab_percentage / 100);
+                taxableIncome = taxableIncome - third_slab_amount;
             }
-            if(taxableIncome<=fourth_slab) {
-                provincialTax = (fourth_slab * fourth_slab_perc) / 100;
-                taxableIncome = taxableIncome - fourth_slab;
+            if(taxableIncome>=fourth_slab_amount) {
+                provincialTax = fourth_slab_amount * (fourth_slab_percentage / 100);
+                taxableIncome = taxableIncome - fourth_slab_amount;
             }
-            if(taxableIncome<=final_slab) {
-                provincialTax=(final_slab * final_slab_perc)/100;
+            if(taxableIncome>=final_slab) {
+                provincialTax=final_slab * (final_slab_percentage/100);
             }
             return provincialTax;
 
