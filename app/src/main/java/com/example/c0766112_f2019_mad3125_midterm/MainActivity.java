@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         edtRRSPcontri = findViewById(R.id.edtRRSP);
         txtAge = findViewById(R.id.txt_D_age);
         //current date
-       currentDate();
+       //currentDate();  //app crashed
         //date picker
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 //        String n3=String.valueOf(diff.getDays());
 //        String age="Age: "+n1+"Years"+n2+"Months"+n3+"Days";
 //        txtAge.setText(age);
-//        return n1;
+//        return n1;  //app crashed
 
     }
     private  void currentDate(){
