@@ -107,6 +107,8 @@ public class CRACustomer implements Parcelable
         dest.writeString(gender);
         dest.writeDouble(grossIncome);
         dest.writeDouble(rrspContri);
+//        dest.writeDouble(taxableIncome);
+//        dest.writeDouble(federalTax);
 
     }
     public CRACustomer(Parcel parcel){
