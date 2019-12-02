@@ -138,7 +138,7 @@ public class CalculatedDetails extends AppCompatActivity {
         }
         if(temp >= 210371.01){
             federalTax = (temp * 0.33);//33%
-            //temp = temp - federalTax;
+            temp = temp - federalTax;
         }
         return federalTax;
     }
