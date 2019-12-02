@@ -173,6 +173,8 @@ public class CalculatedDetails extends AppCompatActivity {
         return provincialTax;
     }
     public  double calTaxPaid(){
+        //calculate total tax to pay
+        totalTaxPaid = federalTax + provincialTax;
         return totalTaxPaid;
     }
 
