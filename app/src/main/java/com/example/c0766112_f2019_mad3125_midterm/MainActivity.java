@@ -80,6 +80,27 @@ public class MainActivity extends AppCompatActivity {
                         calendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
+        //tax filing date
+        final DatePickerDialog.OnDateSetListener date1 = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                // TODO Auto-generated method stub
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, monthOfYear);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                currentDate();
+            }
+        };
+        txtTaxFilingDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                new DatePickerDialog(MainActivity.this, date1, calendar
+                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
         //radio button
         rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -115,7 +136,8 @@ public class MainActivity extends AppCompatActivity {
                       customer = new CRACustomer(edtSinNumber.getText().toString(),
                               edtFirstName.getText().toString(),
                               edtLastName.getText().toString(),
-                              selectedGender, grossIncome, rrsp, Integer.parseInt(txtAge.getText().toString()),txtBirthDate.getText().toString());
+                              selectedGender, grossIncome, rrsp, Integer.parseInt(txtAge.getText().toString()),
+                              txtBirthDate.getText().toString(), txtTaxFilingDate.getText().toString());
                       Intent mIntent = new Intent(MainActivity.this, CalculatedDetails.class);
                       mIntent.putExtra("CRACustomer", customer);
                       startActivity(mIntent);

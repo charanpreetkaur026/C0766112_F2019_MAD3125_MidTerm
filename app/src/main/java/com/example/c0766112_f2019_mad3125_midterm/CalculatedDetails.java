@@ -34,6 +34,7 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDfederalTax = findViewById(R.id.txt_D_federalTax);
         txtDprovincialTax = findViewById(R.id.txt_D_provincialTax);
         lblTaxPaid = findViewById(R.id.txt_D_taxPayed);
+        txtDtaxFilingDate = findViewById(R.id.txt_D_taxFilingDate);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -46,6 +47,8 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDgender.setText(" GENDER: \t" + customer.getGender());
         txtDgrossIncome.setText(" GROSS INCOME: \t" + customer.getGrossIncome());
         lblRRSPcontri.setText("RRSP Contributed: \t" + customer.getRrspContri());
+        txtDtaxFilingDate.setText("Tax Filing Date: \t" + customer.getFilingDate());
+
 
     // calculate  cpp
         double grossIncome = customer.getGrossIncome();
