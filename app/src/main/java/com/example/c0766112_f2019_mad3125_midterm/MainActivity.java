@@ -28,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
     CRACustomer customer;
     final Calendar calendar = Calendar.getInstance();
     DatePickerDialog datePickerDialog;
-    private TextView txtTitle;
+    private TextView txtTitle, txtAge;
     private EditText edtSinNumber, edtFirstName, edtLastName,txtBirthDate,
              edtGrossIncome, edtRRSPcontri;
-    private TextView txtFullName,txtGender, txtTaxFilingDate,txtAge;
+    private TextView txtFullName,txtGender, txtTaxFilingDate;
+
     private RadioGroup rgGender;
     private RadioButton radioGender,rdMale,rdFemale,rdOther;
     private Button btnShow;
@@ -57,9 +58,8 @@ public class MainActivity extends AppCompatActivity {
         txtBirthDate = findViewById(R.id.txtBirthDate);
         edtRRSPcontri = findViewById(R.id.edtRRSP);
         txtAge = findViewById(R.id.txt_D_age);
-        //current date
-       //currentDate();  //app crashed
-        //date picker
+
+        // birth date date picker
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
@@ -92,15 +92,15 @@ public class MainActivity extends AppCompatActivity {
                 currentDate();
             }
         };
-        txtTaxFilingDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                new DatePickerDialog(MainActivity.this, date1, calendar
-                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
-                        calendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
+//        txtTaxFilingDate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // TODO Auto-generated method stub
+//                new DatePickerDialog(MainActivity.this, date1, calendar
+//                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+//                        calendar.get(Calendar.DAY_OF_MONTH)).show();
+//            }
+//        });
         //radio button
         rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -119,31 +119,43 @@ public class MainActivity extends AppCompatActivity {
         btnShow.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              if  (edtSinNumber.getText().toString().length() <= 0 && edtFirstName.getText().toString().length() <= 0
-                          && edtLastName.getText().toString().length() <= 0 && edtRRSPcontri.getText().toString().length() <= 0
-                          && edtGrossIncome.getText().toString().length() <= 0)
-              {
-                  Toast.makeText(MainActivity.this, "Alert: Fill all fields", Toast.LENGTH_SHORT).show();
+              if(edtSinNumber.getText().toString().length()<=0){
+                  Toast.makeText(MainActivity.this, "Alert: Fill SIN Number", Toast.LENGTH_SHORT).show();
+
+                if(edtFirstName.getText().toString().length() <= 0){
+                  Toast.makeText(MainActivity.this, "Alert: Fill First Name", Toast.LENGTH_SHORT).show();
+
+                  if(edtLastName.getText().toString().length() <= 0){
+                  Toast.makeText(MainActivity.this, "Alert: Fill Last Name", Toast.LENGTH_SHORT).show();
+
+              if(edtRRSPcontri.getText().toString().length() <= 0){
+                  Toast.makeText(MainActivity.this, "Alert: Fill RRSP Contribution", Toast.LENGTH_SHORT).show();
+              }
+              if(edtGrossIncome.getText().toString().length() <= 0){
+                  Toast.makeText(MainActivity.this, "Alert: Fill Gross Income", Toast.LENGTH_SHORT).show();
               }
               else {
-                  String age = dateFormat();
-                  if (Integer.parseInt(age) < 18) {
-                      btnShow.setAlpha(.5f);
-                      btnShow.setClickable(false);
-                  } else {
+//                  String age = dateFormat();
+//                  if (Integer.parseInt(age) < 18) {
+//                      btnShow.setAlpha(.5f);
+//                      btnShow.setClickable(false);
+//                  } else {
                       Double grossIncome = Double.parseDouble(edtGrossIncome.getText().toString());
                       Double rrsp = Double.parseDouble(edtRRSPcontri.getText().toString());
                       customer = new CRACustomer(edtSinNumber.getText().toString(),
                               edtFirstName.getText().toString(),
                               edtLastName.getText().toString(),
-                              selectedGender, grossIncome, rrsp, Integer.parseInt(txtAge.getText().toString()),
-                              txtBirthDate.getText().toString(), txtTaxFilingDate.getText().toString());
+                              selectedGender, grossIncome, rrsp,
+                              Integer.parseInt(txtAge.getText().toString()),
+                              txtBirthDate.getText().toString(),
+                              txtTaxFilingDate.getText().toString());
                       Intent mIntent = new Intent(MainActivity.this, CalculatedDetails.class);
                       mIntent.putExtra("CRACustomer", customer);
                       startActivity(mIntent);
                   }
               }
-    }
+
+
     });
 
     };
@@ -174,24 +186,24 @@ public class MainActivity extends AppCompatActivity {
         txtGender.setText(selectedGender);
         Toast.makeText(this, "Gender:" + radioGender.getText(), Toast.LENGTH_SHORT).show();
     }
-    private String dateFormat() {
+    private void dateFormat() {
         //https://stackoverflow.com/questions/14933330/datepicker-how-to-popup-datepicker-when-click-on-edittext
         String myFormat = "dd-MMM-yyyy"; //In which you need put here
         java.text.SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         txtBirthDate.setText(sdf.format(calendar.getTime()));
 
 
-        LocalDate l = LocalDate.of(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-        LocalDate now = LocalDate.now(); //gets localDate
-        Period diff = Period.between(l, now); //difference between the dates is calculated
-        //System.out.println(diff.getYears() + "years" + diff.getMonths() + "months" + diff.getDays() + "days");
-
-        String n1=String.valueOf(diff.getYears());
-        String n2=String.valueOf(diff.getMonths());
-        String n3=String.valueOf(diff.getDays());
-        String age="Age: "+ n1 +"Years"+ n2 +"Months"+ n3 +"Days";
-        txtAge.setText(age);
-        return  n1;
+//        LocalDate l = LocalDate.of(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+//        LocalDate now = LocalDate.now(); //gets localDate
+//        Period diff = Period.between(l, now); //difference between the dates is calculated
+//        //System.out.println(diff.getYears() + "years" + diff.getMonths() + "months" + diff.getDays() + "days");
+//
+//        String n1=String.valueOf(diff.getYears());
+//        String n2=String.valueOf(diff.getMonths());
+//        String n3=String.valueOf(diff.getDays());
+//        String age="Age: "+ n1 +"Years"+ n2 +"Months"+ n3 +"Days";
+//        txtAge.setText(age);
+//        return  n1;
 
     }
 
