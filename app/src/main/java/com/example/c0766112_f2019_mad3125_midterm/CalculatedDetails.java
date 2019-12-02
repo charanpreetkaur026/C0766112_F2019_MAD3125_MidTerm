@@ -84,9 +84,7 @@ public class CalculatedDetails extends AppCompatActivity {
         // total tax paid
         double taxpaid = calTaxPaid();
         lblTaxPaid.setText("Total tax Paid:\t" + taxpaid);
-
-
-
+        
 
     }
 
