@@ -117,11 +117,11 @@ public class CalculatedDetails extends AppCompatActivity {
         //calculate federal tax
         double temp = taxableIncome ;
         if(temp <= 12069.00){
-            federalTax = 0;
+            federalTax = 0;//0%
             temp = taxableIncome - 12069.00;
         }
         if(temp >= 12069.01){
-            federalTax = (temp * 0.15);
+            federalTax = (temp * 0.15);//15%
             temp = temp - 35561;
         }
         if(temp >= 47630.01){
@@ -146,31 +146,31 @@ public class CalculatedDetails extends AppCompatActivity {
         //calculate provincial tax
         double temp = taxableIncome ;
 
-        if(temp <= 12069.00){
-            federalTax = 0;
-            temp = taxableIncome - 12069.00;
+        if(temp <= 10582.00){
+            provincialTax = 0;
+            temp = taxableIncome - 10582.00;
         }
-        if(temp >= 12069.01){
-            federalTax = (temp * 0.15);
-            temp = temp - 35561;
+        if(temp >= 10582.01){
+            provincialTax = (temp * 5.05);
+            temp = temp - 33323.99;
         }
-        if(temp >= 47630.01){
-            federalTax = (temp * 0.205); //20.50%
-            temp = temp - 47628.99;
+        if(temp >= 43906.01){
+            provincialTax = (temp * 9.15); //
+            temp = temp - 43906.99;
         }
-        if(temp >= 95259.01){
-            federalTax = (temp * 0.26); //26%
-            temp = temp - 52407.99;
+        if(temp >= 87813.01){
+            provincialTax = (temp * 11.16); //%
+            temp = temp - 62187.99;
         }
-        if (temp >= 147667.01){
-            federalTax = (temp * 0.29);//29%
-            temp = temp - 62703.99;
+        if (temp >= 150000.01){
+            provincialTax = (temp * 12.16);//%
+            temp = temp - 69999.99;
         }
-        if(temp >= 210371.01){
-            federalTax = (temp * 0.33);//33%
-            //temp = temp - federalTax;
+        if(temp >= 220000.01){
+            provincialTax = (temp * 13.16);//%
+
         }
-        return federalTax;
+        return provincialTax;
     }
     public  double calTaxPaid(){
         return totalTaxPaid;
