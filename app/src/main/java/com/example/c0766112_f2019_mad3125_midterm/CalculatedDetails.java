@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.NumberFormat;
+
 public class CalculatedDetails extends AppCompatActivity {
     CRACustomer customer;
     TextView txtDsin, txtDfullName, txtDgender, txtDgrossIncome,
@@ -18,6 +20,7 @@ public class CalculatedDetails extends AppCompatActivity {
             lblTaxableIncome, lblTaxPaid;
     double cpp = 0, ei = 0;  double rrsp = 0, rrspCf = 0, taxableIncome, federalTax,
             provincialTax, totalTaxPaid;
+    NumberFormat format = NumberFormat.getCurrencyInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

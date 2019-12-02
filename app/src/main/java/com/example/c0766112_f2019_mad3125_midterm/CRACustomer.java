@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.text.Editable;
 import android.widget.EditText;
 
+import java.text.DecimalFormat;
 import java.util.Date;
 
 public class CRACustomer implements Parcelable
@@ -211,7 +212,10 @@ public class CRACustomer implements Parcelable
             return new CRACustomer[size];
         }
     };
-
+    public static String currencyFormat(String amount) {
+        DecimalFormat formatter = new DecimalFormat("###,###,##0.00");
+        return formatter.format(Double.parseDouble(amount));
+    }
 
 
 }

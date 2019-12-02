@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
 
+
     <ScrollView
         android:layout_width="409dp"
         android:layout_height="660dp"
@@ -45,7 +46,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Enter SIN" />
+                android:hint="Enter SIN"
+                android:maxLength="9"/>
 
 
 
@@ -111,10 +113,10 @@
             <EditText
                 android:id="@+id/txtAge"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:inputType="number"
-                android:text="your age" />
+                android:hint="your age" />
 
             <TextView
                 android:id="@+id/txtDate"

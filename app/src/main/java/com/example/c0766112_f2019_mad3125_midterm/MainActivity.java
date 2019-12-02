@@ -52,12 +52,12 @@ public class MainActivity extends AppCompatActivity {
         rdMale = findViewById(R.id.rdMale);
         rdFemale = findViewById(R.id.rdFemale);
         rdOther = findViewById(R.id.rdOthers);
-        txtTaxFilingDate = findViewById(R.id.txt_D_taxFilingDate);
+        txtTaxFilingDate = findViewById(R.id.txtDate);
         edtGrossIncome = findViewById(R.id.edtGrossIncome);
         btnShow = findViewById(R.id.btnShow);
         txtBirthDate = findViewById(R.id.txtBirthDate);
         edtRRSPcontri = findViewById(R.id.edtRRSP);
-        txtAge = findViewById(R.id.txt_D_age);
+        txtAge = findViewById(R.id.txtAge);
 
         // birth date date picker
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -92,15 +92,15 @@ public class MainActivity extends AppCompatActivity {
                 currentDate();
             }
         };
-//        txtTaxFilingDate.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//                new DatePickerDialog(MainActivity.this, date1, calendar
-//                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
-//                        calendar.get(Calendar.DAY_OF_MONTH)).show();
-//            }
-//        });
+        txtTaxFilingDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                new DatePickerDialog(MainActivity.this, date1, calendar
+                        .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
         //radio button
         rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -119,20 +119,11 @@ public class MainActivity extends AppCompatActivity {
         btnShow.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              if(edtSinNumber.getText().toString().length()<=0){
-                  Toast.makeText(MainActivity.this, "Alert: Fill SIN Number", Toast.LENGTH_SHORT).show();
-
-                if(edtFirstName.getText().toString().length() <= 0){
-                  Toast.makeText(MainActivity.this, "Alert: Fill First Name", Toast.LENGTH_SHORT).show();
-
-                  if(edtLastName.getText().toString().length() <= 0){
-                  Toast.makeText(MainActivity.this, "Alert: Fill Last Name", Toast.LENGTH_SHORT).show();
-
-              if(edtRRSPcontri.getText().toString().length() <= 0){
-                  Toast.makeText(MainActivity.this, "Alert: Fill RRSP Contribution", Toast.LENGTH_SHORT).show();
-              }
-              if(edtGrossIncome.getText().toString().length() <= 0){
-                  Toast.makeText(MainActivity.this, "Alert: Fill Gross Income", Toast.LENGTH_SHORT).show();
+              if  (edtSinNumber.getText().toString().length() <= 0 && edtFirstName.getText().toString().length() <= 0
+                          && edtLastName.getText().toString().length() <= 0 && edtRRSPcontri.getText().toString().length() <= 0
+                          && edtGrossIncome.getText().toString().length() <= 0)
+              {
+                  Toast.makeText(MainActivity.this, "Alert: Fill all fields", Toast.LENGTH_SHORT).show();
               }
               else {
 //                  String age = dateFormat();
@@ -142,11 +133,11 @@ public class MainActivity extends AppCompatActivity {
 //                  } else {
                       Double grossIncome = Double.parseDouble(edtGrossIncome.getText().toString());
                       Double rrsp = Double.parseDouble(edtRRSPcontri.getText().toString());
+                      int age = Integer.parseInt(txtAge.getText().toString());
                       customer = new CRACustomer(edtSinNumber.getText().toString(),
                               edtFirstName.getText().toString(),
                               edtLastName.getText().toString(),
-                              selectedGender, grossIncome, rrsp,
-                              Integer.parseInt(txtAge.getText().toString()),
+                              selectedGender, grossIncome, rrsp,age,
                               txtBirthDate.getText().toString(),
                               txtTaxFilingDate.getText().toString());
                       Intent mIntent = new Intent(MainActivity.this, CalculatedDetails.class);
@@ -154,7 +145,6 @@ public class MainActivity extends AppCompatActivity {
                       startActivity(mIntent);
                   }
               }
-
 
     });
 
