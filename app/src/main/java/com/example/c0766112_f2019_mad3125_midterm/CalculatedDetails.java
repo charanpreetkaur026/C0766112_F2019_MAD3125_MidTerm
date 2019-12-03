@@ -54,7 +54,7 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDgender.setText(" GENDER: \t" + customer.getGender());
         txtDgrossIncome.setText(" GROSS INCOME: \t" + formatter.format(pGrossIncome));
         lblRRSPcontri.setText("RRSP CONTRIBUTED: \t" + formatter.format(pRrsp));
-        txtDtaxFilingDate.setText("TAX Filing Date: \t" + customer.getFilingDate());
+        txtDtaxFilingDate.setText("TAX FILING Date: \t" + customer.getFilingDate());
         lblAge.setText(customer.getAge());
 
 
