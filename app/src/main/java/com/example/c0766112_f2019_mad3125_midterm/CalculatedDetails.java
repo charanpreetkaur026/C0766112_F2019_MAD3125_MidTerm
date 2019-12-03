@@ -72,7 +72,7 @@ public class CalculatedDetails extends AppCompatActivity {
         }else{
             ei = (grossIncome * (1.62/100));
         }
-        lblEmpInsurance.setText("Employeement Insurance: \t" + formatter.format(ei));
+        lblEmpInsurance.setText("EMPLOYEMENT INSURANCE: \t" + formatter.format(ei));
         // calculate RRSP
         rrsp = customer.getRrspContri();
         double maxRRSP = (grossIncome * 0.18); //18%
