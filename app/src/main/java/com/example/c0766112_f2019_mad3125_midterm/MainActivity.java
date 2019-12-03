@@ -133,6 +133,9 @@ public class MainActivity extends AppCompatActivity {
 //                      btnShow.setAlpha(.5f);
 //                      btnShow.setClickable(false);
 //                  } else {
+                  SimpleDateFormat sm=new SimpleDateFormat("dd-MMM-yyyy", Locale.US);
+                  Calendar myCalendar = Calendar.getInstance();
+                  String currdate=sm.format(myCalendar.getTime());
                       Double grossIncome = Double.parseDouble(edtGrossIncome.getText().toString());
                       Double rrsp = Double.parseDouble(edtRRSPcontri.getText().toString());
                       //int age = Integer.parseInt(txtAge.getText().toString());
@@ -142,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                               selectedGender, grossIncome, rrsp,
                               txtAge.getText().toString(),
                               txtBirthDate.getText().toString(),
-                              txtTaxFilingDate.getText().toString());
+                              currdate);
                       Intent mIntent = new Intent(MainActivity.this, CalculatedDetails.class);
                       mIntent.putExtra("CRACustomer", customer);
                       startActivity(mIntent);
