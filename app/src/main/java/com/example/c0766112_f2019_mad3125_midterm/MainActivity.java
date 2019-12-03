@@ -133,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
 //                      btnShow.setAlpha(.5f);
 //                      btnShow.setClickable(false);
 //                  } else {
+
+                  //passing current date
                   SimpleDateFormat sm=new SimpleDateFormat("dd-MMM-yyyy", Locale.US);
                   Calendar myCalendar = Calendar.getInstance();
                   String currdate=sm.format(myCalendar.getTime());
