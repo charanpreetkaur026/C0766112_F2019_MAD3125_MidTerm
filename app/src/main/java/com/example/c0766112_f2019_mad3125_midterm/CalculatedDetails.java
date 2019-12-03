@@ -53,7 +53,7 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDfullName.setText(" FULL NAME: \t" + customer.getFullName());
         txtDgender.setText(" GENDER: \t" + customer.getGender());
         txtDgrossIncome.setText(" GROSS INCOME: \t" + formatter.format(pGrossIncome));
-        lblRRSPcontri.setText("RRSP Contributed: \t" + customer.getRrspContri());
+        lblRRSPcontri.setText("RRSP Contributed: \t" + formatter.format(pRrsp));
         txtDtaxFilingDate.setText("Tax Filing Date: \t" + customer.getFilingDate());
         lblAge.setText(customer.getAge());
 
@@ -65,14 +65,14 @@ public class CalculatedDetails extends AppCompatActivity {
         } else {
             cpp = (grossIncome * 0.051);
         }
-        lblcpp.setText("CPP COntribution in Year:\t" + cpp);
+        lblcpp.setText("CPP COntribution in Year:\t" + formatter.format(cpp));
         // calculate employement insurance
         if(grossIncome > 53100){
             ei = (53100 * 0.0162); //1.62%
         }else{
             ei = (grossIncome * (1.62/100));
         }
-        lblEmpInsurance.setText("Employeement Insurance: \t" + ei);
+        lblEmpInsurance.setText("Employeement Insurance: \t" + formatter.format(ei));
         // calculate RRSP
         rrsp = customer.getRrspContri();
         double maxRRSP = (grossIncome * 0.18); //18%
@@ -82,12 +82,12 @@ public class CalculatedDetails extends AppCompatActivity {
        }else{
            rrsp = rrsp;
        }
-        lblCfRRSP.setText("RRSP Carry forward: \t"+ rrspCf);
+        lblCfRRSP.setText("RRSP Carry forward: \t"+ formatter.format(rrspCf));
        //taxable income
         taxableIncome = grossIncome - (cpp + ei + rrsp);
 
         //Toast.makeText(this, "(Double)taxableIncome" + taxableIncome, Toast.LENGTH_SHORT).show();
-        lblTaxableIncome.setText("Taxable income:\t" + (double) taxableIncome);
+        lblTaxableIncome.setText("Taxable income:\t" + formatter.format(taxableIncome));
         //federal tax
         double calFederal = calcFedralTax();
         txtDfederalTax.setText("Federal Tax: \t" + calFederal);
