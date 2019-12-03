@@ -48,6 +48,7 @@ public class CalculatedDetails extends AppCompatActivity {
         Intent mIntent = getIntent();
         CRACustomer customer = mIntent.getParcelableExtra("CRACustomer");
         double pGrossIncome = customer.getGrossIncome();
+        double pRrsp = customer.getRrspContri();
         txtDsin.setText(" SIN: \t" + customer.getSinNumber());
         txtDfullName.setText(" FULL NAME: \t" + customer.getFullName());
         txtDgender.setText(" GENDER: \t" + customer.getGender());
