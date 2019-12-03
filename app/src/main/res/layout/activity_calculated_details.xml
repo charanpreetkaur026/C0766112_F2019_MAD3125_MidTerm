@@ -16,17 +16,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    <TextView
-        android:id="@+id/txt_D_SIN"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:hint="SIN"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_D_SIN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:hint="SIN"
+            android:textAlignment="viewStart"
+            android:textColor="#F8090909"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/txt_D_fullName"
             android:layout_width="match_parent"
@@ -35,93 +40,143 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="Full name"
+            android:textColor="#FA090909"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_D_SIN" />
-        <TextView android:id="@+id/txt_D_age"
+
+        <TextView
+            android:id="@+id/txt_D_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:hint="Age" />
-        <TextView android:id="@+id/txt_D_Gender"
+            android:hint="Age"
+            android:textColor="#F7070606"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_D_Gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:hint="Gender" />
-        <TextView android:id="@+id/txt_D_grossIncome"
+            android:hint="Gender"
+            android:textColor="#FA090909"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_D_grossIncome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:hint="Gross Income" />
-        <TextView android:id="@+id/txt_D_taxFilingDate"
+            android:hint="Gross Income"
+            android:textColor="#F8080707"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_D_taxFilingDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:hint="TAX Filing Date" />
-        <TextView android:id="@+id/txt_D_Cpp"
+            android:hint="TAX Filing Date"
+            android:textColor="#FD131111"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_D_Cpp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:hint="CPP contribution in Year" />
-        <TextView android:id="@+id/txt_D_empInsurance"
+            android:hint="CPP contribution in Year"
+            android:textColor="#F3080808"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_D_empInsurance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:hint="Employement Insurance" />
-        <TextView android:id="@+id/txt_D_RRSPContri"
+            android:hint="Employement Insurance"
+            android:textColor="#FA030303"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_D_RRSPContri"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:hint="RRSP contributed" />
-        <TextView android:id="@+id/txt_D_cfRRSP"
+            android:hint="RRSP contributed"
+            android:textColor="#F3010101"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_D_cfRRSP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:hint="carry forward RRSP" />
-        <TextView android:id="@+id/txt_D_taxableIncome"
+            android:hint="carry forward RRSP"
+            android:textColor="#F6070606"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_D_taxableIncome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:hint="Total Taxable Income" />
-        <TextView android:id="@+id/txt_D_federalTax"
+            android:hint="Total Taxable Income"
+            android:textColor="#F7050505"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_D_federalTax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:hint="Federal Tax" />
-        <TextView android:id="@+id/txt_D_provincialTax"
+            android:hint="Federal Tax"
+            android:textColor="#050505"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_D_provincialTax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:hint="Provincial Tax" />
-        <TextView android:id="@+id/txt_D_taxPayed"
+            android:hint="Provincial Tax"
+            android:textColor="#FA050505"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_D_taxPayed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:hint="Total Tax Payed" />
+            android:hint="Total Tax Payed"
+            android:textColor="#FD080707"
+            android:textStyle="bold" />
 
 
     </LinearLayout>

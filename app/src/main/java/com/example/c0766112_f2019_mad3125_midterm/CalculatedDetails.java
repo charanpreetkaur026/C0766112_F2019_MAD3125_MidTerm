@@ -151,7 +151,7 @@ public class CalculatedDetails extends AppCompatActivity {
             federalTax = (temp * 0.33);//33%
             //temp = temp - federalTax;
         }
-        
+
         return federalTax;
     }
     public  double calcProvincialTax(){

@@ -121,23 +121,22 @@ public class MainActivity extends AppCompatActivity {
         btnShow.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              if  (edtSinNumber.getText().toString().length() <= 0 && edtFirstName.getText().toString().length() <= 0
-                          && edtLastName.getText().toString().length() <= 0 && edtRRSPcontri.getText().toString().length() <= 0
-                          && edtGrossIncome.getText().toString().length() <= 0)
-              {
+              if (edtSinNumber.getText().toString().length() <= 0 && edtFirstName.getText().toString().length() <= 0
+                      && edtLastName.getText().toString().length() <= 0 && edtRRSPcontri.getText().toString().length() <= 0
+                      && edtGrossIncome.getText().toString().length() <= 0) {
                   Toast.makeText(MainActivity.this, "Alert: Fill all fields", Toast.LENGTH_SHORT).show();
-              }
-              else {
-//                  String age = dateFormat();
-//                  if (Integer.parseInt(age) < 18) {
-//                      btnShow.setAlpha(.5f);
-//                      btnShow.setClickable(false);
-//                  } else {
+              } else {
+                  String age = dateFormat();
+                  if (Integer.parseInt(age) < 18) {
+                      btnShow.setAlpha(.5f);
+                      btnShow.setClickable(false);
+                      Toast.makeText(MainActivity.this, "You are not Eligible to File Tax (minimum age should be 18 years)", Toast.LENGTH_SHORT).show();
+                  } else {
 
-                  //passing current date
-                  SimpleDateFormat sm=new SimpleDateFormat("dd-MMM-yyyy", Locale.US);
-                  Calendar myCalendar = Calendar.getInstance();
-                  String currdate=sm.format(myCalendar.getTime());
+                      //passing current date
+                      SimpleDateFormat sm = new SimpleDateFormat("dd-MMM-yyyy", Locale.US);
+                      Calendar myCalendar = Calendar.getInstance();
+                      String currdate = sm.format(myCalendar.getTime());
                       Double grossIncome = Double.parseDouble(edtGrossIncome.getText().toString());
                       Double rrsp = Double.parseDouble(edtRRSPcontri.getText().toString());
                       //int age = Integer.parseInt(txtAge.getText().toString());
@@ -153,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                       startActivity(mIntent);
                   }
               }
-
+          }
     });
 
     };
