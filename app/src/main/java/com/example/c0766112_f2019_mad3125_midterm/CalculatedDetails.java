@@ -20,7 +20,7 @@ public class CalculatedDetails extends AppCompatActivity {
             lblTaxableIncome, lblTaxPaid, lblAge;
     double cpp = 0, ei = 0;  double rrsp = 0, rrspCf = 0, taxableIncome, federalTax,
             provincialTax, totalTaxPaid;
-    
+
     NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
     @Override
@@ -47,11 +47,11 @@ public class CalculatedDetails extends AppCompatActivity {
         //collecting intent
         Intent mIntent = getIntent();
         CRACustomer customer = mIntent.getParcelableExtra("CRACustomer");
-
+        double pGrossIncome = customer.getGrossIncome();
         txtDsin.setText(" SIN: \t" + customer.getSinNumber());
         txtDfullName.setText(" FULL NAME: \t" + customer.getFullName());
         txtDgender.setText(" GENDER: \t" + customer.getGender());
-        txtDgrossIncome.setText(" GROSS INCOME: \t" + customer.getGrossIncome());
+        txtDgrossIncome.setText(" GROSS INCOME: \t" + formatter.format(pGrossIncome));
         lblRRSPcontri.setText("RRSP Contributed: \t" + customer.getRrspContri());
         txtDtaxFilingDate.setText("Tax Filing Date: \t" + customer.getFilingDate());
         lblAge.setText(customer.getAge());
