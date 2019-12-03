@@ -20,7 +20,9 @@ public class CalculatedDetails extends AppCompatActivity {
             lblTaxableIncome, lblTaxPaid, lblAge;
     double cpp = 0, ei = 0;  double rrsp = 0, rrspCf = 0, taxableIncome, federalTax,
             provincialTax, totalTaxPaid;
-    NumberFormat format = NumberFormat.getCurrencyInstance();
+    
+    NumberFormat formatter = NumberFormat.getCurrencyInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
