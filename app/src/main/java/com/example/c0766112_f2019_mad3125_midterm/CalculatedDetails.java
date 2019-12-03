@@ -65,7 +65,7 @@ public class CalculatedDetails extends AppCompatActivity {
         } else {
             cpp = (grossIncome * 0.051);
         }
-        lblcpp.setText("CPP COntribution in Year:\t" + formatter.format(cpp));
+        lblcpp.setText("CPP CONTRIBUTION IN YEAR:\t" + formatter.format(cpp));
         // calculate employement insurance
         if(grossIncome > 53100){
             ei = (53100 * 0.0162); //1.62%
