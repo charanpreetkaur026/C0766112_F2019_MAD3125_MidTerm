@@ -96,7 +96,7 @@ public class CalculatedDetails extends AppCompatActivity {
         txtDprovincialTax.setText("Provincial Tax:\t" + formatter.format(calProvincial));
         // total tax paid
         double taxpaid = calTaxPaid();
-        lblTaxPaid.setText("Total tax Paid:\t" + taxpaid);
+        lblTaxPaid.setText("Total tax Paid:\t" + formatter.format(taxpaid));
 
 
     }
