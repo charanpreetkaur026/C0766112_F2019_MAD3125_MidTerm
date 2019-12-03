@@ -82,21 +82,21 @@ public class CalculatedDetails extends AppCompatActivity {
        }else{
            rrsp = rrsp;
        }
-        lblCfRRSP.setText("RRSP Carry forward: \t"+ formatter.format(rrspCf));
+        lblCfRRSP.setText("RRSP CARRY FORWARD: \t"+ formatter.format(rrspCf));
        //taxable income
         taxableIncome = grossIncome - (cpp + ei + rrsp);
 
         //Toast.makeText(this, "(Double)taxableIncome" + taxableIncome, Toast.LENGTH_SHORT).show();
-        lblTaxableIncome.setText("Taxable income:\t" + formatter.format(taxableIncome));
+        lblTaxableIncome.setText("TAXABLE INCOME:\t" + formatter.format(taxableIncome));
         //federal tax
         double calFederal = calcFedralTax();
-        txtDfederalTax.setText("Federal Tax: \t" + formatter.format(calFederal));
+        txtDfederalTax.setText("FEDERAL TAX: \t" + formatter.format(calFederal));
         // Provincial Tax
         double calProvincial = calcProvincialTax();
-        txtDprovincialTax.setText("Provincial Tax:\t" + formatter.format(calProvincial));
+        txtDprovincialTax.setText("PROVINCIAL TAX:\t" + formatter.format(calProvincial));
         // total tax paid
         double taxpaid = calTaxPaid();
-        lblTaxPaid.setText("Total tax Paid:\t" + formatter.format(taxpaid));
+        lblTaxPaid.setText("TOTAL TAX PAID:\t" + formatter.format(taxpaid));
 
 
     }
